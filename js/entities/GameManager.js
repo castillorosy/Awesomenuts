@@ -82,23 +82,22 @@ game.SpendGold = Object.extend({
         this.updateWhenPaused = true;
         this.buying = false;
     },
-//    update: function(){
-//        this.now = new Date().getTime();
-//        if(me.input.isKeyPressed("buy") this.now-this.lastBuy >=1000){
-//            this.lastBuy = this.now;
-//            if(!this.buying){
-//                this.startBuying();
-//            }
-////            if the key is pressed over a second 2 things will
-////             happen buy things will be false and or start 
-////             buying stuff
-//        }else{
-//            this.stopBuying();
-//        }
-//        this.checkBuyKeys();
-//        
-//        return true;
-//    },
+    update: function() {
+        this.now = new Date().getTime();
+        if (me.input.isKeyPressed("buy") && this.now - this.lastBuy >= 1000) {
+            this.lastBuy = this.now;
+            if (!this.buying) {
+                this.startBuying();
+            } else {
+            this.stopBuying();
+        }
+//           if the key is pressed over a second 2 things will
+//             happen buy things will be false and or start 
+//             buying stuff
+        }
+        this.checkBuyKeys();
+        return true;
+    },
     startBuying: function() {
         this.buying = true;
 //        when they start buying
